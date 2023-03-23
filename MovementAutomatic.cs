@@ -6,11 +6,12 @@ public class MovementAutomatic : MonoBehaviour
     enum TypeMovementBot { HorizontalBounce,VerticalBounce,HorizontalFromLeft, HorizontalFromRight,VerticalFromAbove, VerticalFromBelow }
 
     [SerializeField] TypeMovementBot typeMovementRobot;
-    [SerializeField] float speed = 1;
-    [SerializeField] float startX = 25;
+    [SerializeField] float speed = 0.05F;
+    [SerializeField] float startX = 25.5F;
     [SerializeField] float startY = 3;
-    [SerializeField] float endX = 29;
+    [SerializeField] float endX = 28.6F;
     [SerializeField] float endY = 10;
+    private Boolean goingRight = true;
 
     private Transform t;
 
@@ -20,11 +21,8 @@ public class MovementAutomatic : MonoBehaviour
     }
 
     private void Start(){
-        if(typeMovementRobot == TypeMovementBot.HorizontalBounce || typeMovementRobot == TypeMovementBot.HorizontalFromLeft || typeMovementRobot == TypeMovementBot.HorizontalFromRight) {
-            t.position = new Vector2(startX, t.position.y);
-        } else {
-            t.position = new Vector2(t.position.x, startY);
-        }
+        t.position = new Vector2(27, 4);
+        typeMovementRobot = TypeMovementBot.HorizontalBounce;
     }
 
     private void Update()
@@ -62,10 +60,15 @@ public class MovementAutomatic : MonoBehaviour
     {
         if (t.position.x >= endX)
         {
-            HorizontalFromRight();
+            goingRight = false;
         }
         else if (t.position.x <= startX){
+            goingRight = true;
+        }
+        if (goingRight){
             HorizontalFromLeft();
+        } else {
+            HorizontalFromRight();
         }
     }
 
