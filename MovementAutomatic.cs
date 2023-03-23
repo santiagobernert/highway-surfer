@@ -6,8 +6,11 @@ public class Player : MonoBehaviour
     enum TypeMovementBot { HorizontalBounce,VerticalBounce,HorizontalFromLeft, HorizontalFromRight,VerticalFromAbove, VerticalFromBelow }
 
     [SerializeField] TypeMovementBot typeMovementRobot;
-
-    public void speed = 1;
+    [SerializeField] float speed = 1;
+    [SerializeField] float startX = 25;
+    [SerializeField] float startY = 3;
+    [SerializeField] float endX = 29;
+    [SerializeField] float endY = 10;
 
     private Transform t;
 
@@ -15,6 +18,15 @@ public class Player : MonoBehaviour
     {
         t = GetComponent<Transform>();
     }
+
+    private void Start(){
+        if(typeMovementRobot == TypeMovementBot.HorizontalBounce || typeMovementRobot == TypeMovementBot.HorizontalFromLeft || typeMovementRobot == TypeMovementBot.HorizontalFromRight) {
+            t.position = new Vector2(startX, t.position.y);
+        } else {
+            t.position = new Vector2(t.position.x, startY);
+        }
+    }
+
     private void Update()
     {
         try
@@ -22,19 +34,25 @@ public class Player : MonoBehaviour
             switch (typeMovementRobot)
             {
                 case TypeMovementBot.HorizontalBounce:
+                    HorizontalBounce();
                     break;
                 case TypeMovementBot.VerticalBounce:
+                    VerticalBounce();
                     break;
                 case TypeMovementBot.HorizontalFromLeft:
+                    HorizontalFromLeft();
                     break;
                 case TypeMovementBot.HorizontalFromRight:
+                    HorizontalFromRight();
                     break;
                 case TypeMovementBot.VerticalFromAbove:
+                    VerticalFromAbove();
                     break;
                 case TypeMovementBot.VerticalFromBelow:
+                    VerticalFromBelow();
                     break;
             }
-        }catch(Exception e)
+        }catch
         {
             Debug.LogError("No se ha encontrado el componente Transform en el objeto actual");
         }
@@ -42,54 +60,43 @@ public class Player : MonoBehaviour
 
     private void HorizontalBounce()
     {
-        if (t.position.x >= 29)
+        if (t.position.x >= endX)
         {
-            t.position = new Vector3()
+            HorizontalFromRight();
+        }
+        else if (t.position.x <= startX){
+            HorizontalFromLeft();
         }
     }
 
     private void VerticalBounce()
     {
-        if (t.position.x <= 25)
+        if (t.position.y >= endY)
         {
-            t.position = new Vector3()
+            VerticalFromBelow();
+        }
+        else if (t.position.y <= startY){
+            VerticalFromAbove();
         }
     }
 
     private void HorizontalFromLeft()
     {
-        if (Input.GetKeyDown(KeyCode.Left))
-        {
-            float direction = Input.GetAxis("Horizontal");
-            t.Translate(Vector2.right * speed * direction * Time.deltaTime)
-        }
-        
+        t.position = new Vector2(t.position.x + speed, t.position.y);
     }
 
     private void HorizontalFromRight()
     {
-        if (Input.GetKeyDown(KeyCode.Right))
-        {
-            float direction = Input.GetAxis("Horizontal");
-            t.Translate(Vector2.right * speed * direction * Time.deltaTime)
-        }
+        t.position = new Vector2(t.position.x - speed, t.position.y);
     }
 
     private void VerticalFromAbove()
     {
-        if (Input.GetKeyDown(KeyCode.Down))
-        {
-            float direction = Input.GetAxis("Horizontal");
-            t.Translate(Vector2.right * speed * direction * Time.deltaTime)
-        }
+        t.position = new Vector2(t.position.x, t.position.y + speed);
     }
 
     private void VerticalFromBelow()
     {
-        if (Input.GetKeyDown(KeyCode.Up))
-        {
-            float direction = Input.GetAxis("Horizontal");
-            t.Translate(Vector2.right * speed * direction * Time.deltaTime)
-        }
+        t.position = new Vector2(t.position.x, t.position.y - speed);
     }
 }
