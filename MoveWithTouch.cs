@@ -8,7 +8,6 @@ public class MoveWithTouch : MonoBehaviour
     [SerializeField] float minX = 25.5F;
     [SerializeField] float startY = 5;
     [SerializeField] float maxX = 28.6F;
-    private Boolean goingRight = true;
 
     private Transform t;
 
@@ -18,7 +17,7 @@ public class MoveWithTouch : MonoBehaviour
     }
 
     private void Start(){
-        t.position = new Vector2(27, 4);
+        t.position = new Vector2(27, startY);
     }
 
     private void Update()
@@ -28,41 +27,41 @@ public class MoveWithTouch : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                if (touch.position.x < Screen.width / 2 && t.position.x > -1.75f)
+                if (touch.position.x < Screen.width / 2 && t.position.x < maxX)
                 {
-                    t.position = new Vector2(t.position.x - step, t.position.y)
+                    t.position = new Vector2(t.position.x - step, t.position.y);
                 }
-                if (touch.position.x > Screen.width / 2 && t.position.x > -1.75f)
+                if (touch.position.x > Screen.width / 2 && t.position.x > minX)
                 {
-                    t.position = new Vector2(t.position.x + step, t.position.y)
+                    t.position = new Vector2(t.position.x + step, t.position.y);
                 }
             }
-            try
-            {
-                switch (typeMovementRobot)
-                {
-                    case TypeMovementBot.Left:
-                        Left();
-                        break;
-                    case TypeMovementBot.Right:
-                        Right();
-                        break;
-                }
-            }catch
-            {
-                Debug.LogError("No se ha encontrado el componente Transform en el objeto actual");
-            }
+            // try
+            // {
+            //     switch (typeMovementRobot)
+            //     {
+            //         case TypeMovementBot.Left:
+            //             Left();
+            //             break;
+            //         case TypeMovementBot.Right:
+            //             Right();
+            //             break;
+            //     }
+            // }catch
+            // {
+            //     Debug.LogError("No se ha encontrado el componente Transform en el objeto actual");
+            // }
         }
     }
 
 
-    private void Left()
-    {
-        t.position = new Vector2(t.position.x + speed, t.position.y);
-    }
+    // private void Left()
+    // {
+    //     t.position = new Vector2(t.position.x + speed, t.position.y);
+    // }
 
-    private void Right()
-    {
-        t.position = new Vector2(t.position.x - speed, t.position.y);
-    }
+    // private void Right()
+    // {
+    //     t.position = new Vector2(t.position.x - speed, t.position.y);
+    // }
 }
