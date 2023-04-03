@@ -1,8 +1,15 @@
 using System;
 using UnityEngine;
-using static MovementAutomatic;
 
 public class Obstacle : MonoBehaviour
 {
-    MovementAutomatic(TypeMovementBot.VerticalFromAbove, 0.04F);
+    public bool Colission;
+
+    public void OnCollisionEnter2D(Collision2D colission) {
+        Debug.Log("choque");
+    }
+
+    private void OnTriggerEnter2D(Collider2D colission) {
+        Debug.Log("colissione con" + colission.name);
+    }
 }

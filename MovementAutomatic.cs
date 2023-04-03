@@ -3,22 +3,17 @@ using UnityEngine;
 
 public class MovementAutomatic : MonoBehaviour 
 {
-    public MovementAutomatic (TypeMovementBot type_, float speed_){
-        Type = type_;
-        Speed = speed_;
-    }
-
-    public TypeMovementBot Type { get; set; }
-    public float Speed { get;set; }
     
     public enum TypeMovementBot { HorizontalBounce,VerticalBounce,HorizontalFromLeft, HorizontalFromRight,VerticalFromAbove, VerticalFromBelow }
 
     [SerializeField] TypeMovementBot typeMovementRobot;
+    [SerializeField] float speed = 0.5F;
     [SerializeField] float startX = 25.5F;
     [SerializeField] float startY = 5;
     [SerializeField] float endX = 28.6F;
     [SerializeField] float endY = 10;
     private Boolean goingRight = true;
+    private Boolean goingDown = true;
 
     private Transform t;
 
@@ -29,7 +24,7 @@ public class MovementAutomatic : MonoBehaviour
 
     private void start(){
         t.position = new Vector2(27, 4);
-        typeMovementRobot = Type;
+        typeMovementRobot = TypeMovementBot.HorizontalBounce;
     }
 
     private void Update()
@@ -81,32 +76,37 @@ public class MovementAutomatic : MonoBehaviour
 
     private void VerticalBounce()
     {
-        if (t.position.y >= endY)
+        if (t.position.x >= endY)
         {
-            VerticalFromBelow();
+            goingDown = false;
         }
-        else if (t.position.y <= startY){
-            VerticalFromAbove();
+        else if (t.position.x <= startY){
+            goingDown = true;
+        }
+        if (goingDown){
+            HorizontalFromLeft();
+        } else {
+            HorizontalFromRight();
         }
     }
 
     private void HorizontalFromLeft()
     {
-        t.position = new Vector2(t.position.x + Speed, t.position.y);
+        t.position = new Vector2(t.position.x + speed, t.position.y);
     }
 
     private void HorizontalFromRight()
     {
-        t.position = new Vector2(t.position.x - Speed, t.position.y);
+        t.position = new Vector2(t.position.x - speed, t.position.y);
     }
 
     private void VerticalFromBelow()
     {
-        t.position = new Vector2(t.position.x, t.position.y + Speed);
+        t.position = new Vector2(t.position.x, t.position.y + speed);
     }
 
     private void VerticalFromAbove()
     {
-        t.position = new Vector2(t.position.x, t.position.y - Speed);
+        t.position = new Vector2(t.position.x, t.position.y - speed);
     }
 }
