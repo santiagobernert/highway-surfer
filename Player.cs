@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {   
     Rigidbody2D rb;
-    [SerializeField] float speed = 0.05F;
 
     public void OnCollisionEnter2D(Collision2D colission) {
         Debug.Log("choque");
@@ -22,9 +21,4 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        // rb.AddForce(Vector3.up*speed, ForceMode2D.Force);
-    }
-
 }
