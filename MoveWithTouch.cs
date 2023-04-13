@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class MoveWithTouch : MonoBehaviour
 {
-
-    [SerializeField] float speed = 0.05F;
+    [SerializeField] float speed = 0.4f;
     [SerializeField] float minX = 25.5F;
     [SerializeField] float startY = 5;
     [SerializeField] float maxX = 28.6F;
@@ -28,19 +27,14 @@ public class MoveWithTouch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             lane = lane-1;
-            Debug.Log(lane);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             lane = lane+1;
-            Debug.Log(lane);
         }
-        if (t.position.x < lanes[lane])
-        {
-            t.position = new Vector2(t.position.x + speed, t.position.y);
-        }else if(t.position.x > lanes[lane]){
-            t.position = new Vector2(t.position.x - speed, t.position.y);
-        }
+
+        Vector2 newposition = new Vector2(lanes[lane], t.position.y);
+        t.position = Vector2.Lerp(t.position, newposition, speed);
 
 
         // if (Input.touchCount > 0)
@@ -83,15 +77,4 @@ public class MoveWithTouch : MonoBehaviour
             // }
         // }
     }
-
-
-    // private void Left()
-    // {
-    //     t.position = new Vector2(t.position.x + speed, t.position.y);
-    // }
-
-    // private void Right()
-    // {
-    //     t.position = new Vector2(t.position.x - speed, t.position.y);
-    // }
 }
