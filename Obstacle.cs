@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public bool Colission;
 
     public void OnCollisionEnter2D(Collision2D colission) {
         Debug.Log("choque");

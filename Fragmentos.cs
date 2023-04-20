@@ -4,17 +4,24 @@ using System.Collections.Generic;
 
 public class Fragmentos : MonoBehaviour
 {
-    // [SerializeField] List<GameObject> fragments = new();
-    // [SerializeField] float spawnPoint = 2F;
-    // [SerializeField] float deadPoint = -150F;
+    float spawnPoint = -2F;
+    float deadPoint = -150F;
+    private GameObject self;
+    private Transform t;
 
-    // private void Update() {
-    //     if (fragments[0].transform.position.y <= spawnPoint){
-    //         fragments[1];
-    //     }
-    //     if (fragments[0].transform.position.y <= deadPoint){
-    //         fragments.remove(0);
-    //     }
-    // }
+    private void Start() {
+        self = GetComponent<GameObject>();
+        t = GetComponent<Transform>();
+    }
+
+    private void Update() {
+        if (t.position.y == spawnPoint){
+            Debug.Log("spawn desde frag");
+            GetComponent<Spawner>().Spawn();
+        }
+        if (t.position.y == deadPoint){
+            Destroy(self);  
+        }
+    }
 
 }
