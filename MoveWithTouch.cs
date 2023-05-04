@@ -24,57 +24,38 @@ public class MoveWithTouch : MonoBehaviour
 
     private void Update()
     {
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Began)
+        {
+            if (touch.position.x < Screen.width / 2 && t.position.x < maxX)
+            {
+                if (lane != 0){
+                    lane = lane-1;
+                }
+                
+            }
+            if (touch.position.x > Screen.width / 2 && t.position.x > minX)
+            {
+                if (lane != 2){
+                    lane = lane+1;
+                }
+            }
+        }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            lane = lane-1;
+            if (lane != 0){
+                    lane = lane-1;
+                }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            lane = lane+1;
+            if (lane != 2){
+                    lane = lane+1;
+                }
         }
+
 
         Vector2 newposition = new Vector2(lanes[lane], t.position.y);
         t.position = Vector2.Lerp(t.position, newposition, speed);
-
-
-        // if (Input.touchCount > 0)
-        // {
-            // Touch touch = Input.GetTouch(0);
-            // if (touch.phase == TouchPhase.Began)
-
-            // {
-                // if (touch.position.x < Screen.width / 2 && t.position.x < maxX)
-                // {
-                //     lane = lane--;
-                //     Debug.Log("izquierda");
-                // }
-                // if (touch.position.x > Screen.width / 2 && t.position.x > minX)
-                // {
-                //     lane = lane ++;
-                //     Debug.Log("derecha");
-                // }
-                // if (t.position.x <= lanes[lane])
-                // {
-                //     t.position = new Vector2(t.position.x + step, t.position.y);
-                // }else if(t.position.x >= lanes[lane]){
-                //     t.position = new Vector2(t.position.x - step, t.position.y);
-                // }
-            // }
-            // try
-            // {
-            //     switch (typeMovementRobot)
-            //     {
-            //         case TypeMovementBot.Left:
-            //             Left();
-            //             break;
-            //         case TypeMovementBot.Right:
-            //             Right();
-            //             break;
-            //     }
-            // }catch
-            // {
-            //     Debug.LogError("No se ha encontrado el componente Transform en el objeto actual");
-            // }
-        // }
     }
 }
