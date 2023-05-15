@@ -22,7 +22,7 @@ public class MoveWithTouch : MonoBehaviour
         lane = 1;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Touch touch = Input.GetTouch(0);
         if (touch.phase == TouchPhase.Began)

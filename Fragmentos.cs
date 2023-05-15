@@ -14,7 +14,7 @@ public class Fragmentos : MonoBehaviour
         t = GetComponent<Transform>();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (t.position.y == spawnPoint){
             Debug.Log("spawn desde frag");
             GetComponent<Spawner>().Spawn();

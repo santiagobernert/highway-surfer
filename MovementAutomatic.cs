@@ -27,7 +27,7 @@ public class MovementAutomatic : MonoBehaviour
         typeMovementRobot = TypeMovementBot.HorizontalBounce;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         try
         {
