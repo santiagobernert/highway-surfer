@@ -8,12 +8,20 @@ public class Spawner : MonoBehaviour
     public List<GameObject> fragments;
 
      private void Start() {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        fragments.Add(prefab);
      }
+
+      private void OnTriggerEnter2D(Collider2D other) {
+         if (other.CompareTag("FragmentCollider")){
+            Spawn();
+         }
+         
+      }
 
      public void Spawn(){
         Debug.Log("spawn");
-        Instantiate(fragments[0], transform.position, Quaternion.identity);
+        GameObject fr = Instantiate(fragments[0], new Vector3(29.37f, 20.73f, 0), Quaternion.identity) as GameObject;
+        fr.tag = "FragmentCollider";
         fragments.RemoveAt(0);
         fragments.Add(prefab);
      }

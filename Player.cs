@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {   
     Rigidbody2D rb;
-    // SceneManager sm;
 
     public void OnCollisionEnter2D(Collision2D colission) {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -22,6 +21,5 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         // sm = GetComponent<SceneManager>()
     }
-
     // Update is called once per frame
 }
