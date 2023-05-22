@@ -11,10 +11,6 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnTriggerEnter2D(Collider2D colission) {
-        Debug.Log("colissione con" + colission.name);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
