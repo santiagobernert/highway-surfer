@@ -1,12 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
 
 public class SceneController : MonoBehaviour 
 {
+    Score score;
     public void Play(){
         SceneManager.LoadScene("Scenes/Principal");
+    }
+
+    private void Start() {
+        score = GameObject.Find("Score").GetComponent<Score>();
     }
 
     public void Back(){
@@ -14,10 +18,12 @@ public class SceneController : MonoBehaviour
     }
 
     public void Pause(){
+        score.paused = true;
         SceneManager.LoadScene("Scenes/Pause", LoadSceneMode.Additive);
     }
 
     public void Resume(){
-        EditorSceneManager.CloseScene(SceneManager.GetSceneByName("Pause"), false);
+        SceneManager.UnloadSceneAsync("Scenes/Pause");
+        score.paused = false;
     }
 }
