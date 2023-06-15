@@ -8,8 +8,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] List<GameObject> prefabs;
 
       private void OnTriggerEnter2D(Collider2D other) {
-         if (other.CompareTag("FragmentCollider")){
-            Spawn();
+         Obstacle ob = other.gameObject.GetComponent<Obstacle>();
+         if (ob){
+            if (ob.first){
+               Spawn();
+            }
          }
       }
 
