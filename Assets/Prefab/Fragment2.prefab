@@ -463,9 +463,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6183477889070680869}
     m_Modifications:
+    - target: {fileID: 2573320676530134073, guid: eccc86284435e6d0c9aeb5d01f4c811e, type: 3}
+      propertyPath: first
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2573320676530134077, guid: eccc86284435e6d0c9aeb5d01f4c811e, type: 3}
       propertyPath: m_Name
       value: Container (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2573320676530134077, guid: eccc86284435e6d0c9aeb5d01f4c811e, type: 3}
+      propertyPath: m_TagString
+      value: FragmentCollider
       objectReference: {fileID: 0}
     - target: {fileID: 2573320676530134079, guid: eccc86284435e6d0c9aeb5d01f4c811e, type: 3}
       propertyPath: m_RootOrder
