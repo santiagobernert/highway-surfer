@@ -7,14 +7,18 @@ public class Score : MonoBehaviour
 {
     public float scoreValue;
     public bool paused;
+    public float time;
+    public float startTime;
     public Text score;
     public Text highscoreText;
     public int highscore;
-    public float scoreMultiplier = 0.8f;
+    public float scoreMultiplier = 1.2f;
 
     void Start() {
+        PlayerPrefs.SetInt("highscore", 0);
         scoreValue = 0;
         highscoreText.text = "" + PlayerPrefs.GetInt("highscore", highscore);
+        startTime = Time.time;
     }
 
     void Update() {
@@ -26,7 +30,8 @@ public class Score : MonoBehaviour
                 score.text = ""+(int)scoreValue;
             }
         }
-        scoreValue += Time.fixedTime/100 * scoreMultiplier;  
+        time = Time.time - startTime;
+        scoreValue = time * scoreMultiplier;  
         
     }
 }
