@@ -7,7 +7,7 @@ public class MovementAutomatic : MonoBehaviour
     public enum TypeMovementBot { HorizontalBounce,VerticalBounce,HorizontalFromLeft, HorizontalFromRight,VerticalFromAbove, VerticalFromBelow }
 
     [SerializeField] TypeMovementBot typeMovementRobot;
-    [SerializeField] float speed = 0.5F;
+    [SerializeField] float _speed = 0.04f;
     [SerializeField] float startX = 25.5F;
     [SerializeField] float startY = 5;
     [SerializeField] float endX = 28.6F;
@@ -92,21 +92,21 @@ public class MovementAutomatic : MonoBehaviour
 
     private void HorizontalFromLeft()
     {
-        t.position = new Vector2(t.position.x + speed, t.position.y);
+        t.position = new Vector2(t.position.x + _speed, t.position.y);
     }
 
     private void HorizontalFromRight()
     {
-        t.position = new Vector2(t.position.x - speed, t.position.y);
+        t.position = new Vector2(t.position.x - _speed, t.position.y);
     }
 
     private void VerticalFromBelow()
     {
-        t.position = new Vector2(t.position.x, t.position.y + speed);
+        t.position = new Vector2(t.position.x, t.position.y + _speed);
     }
 
     private void VerticalFromAbove()
     {
-        t.position = new Vector2(t.position.x, t.position.y - speed);
+        t.position = new Vector2(t.position.x, t.position.y - _speed);
     }
 }
