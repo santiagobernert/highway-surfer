@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour 
 {
     Score score;
-    float startTime;
-    float midTime;
 
     public void Play(){
         SceneManager.LoadScene("Scenes/Principal");
@@ -14,7 +12,6 @@ public class SceneController : MonoBehaviour
 
     private void Start() {
         score = GameObject.Find("Score").GetComponent<Score>();
-        startTime = GameObject.Find("Score").GetComponent<Score>().startTime;
     }
 
     public void Back(){
@@ -23,13 +20,13 @@ public class SceneController : MonoBehaviour
 
     public void Pause(){
         score.paused = true;
+        Time.timeScale = 0f;
         SceneManager.LoadScene("Scenes/Pause", LoadSceneMode.Additive);
-        midTime = Time.time;
     }
 
     public void Resume(){
         SceneManager.UnloadSceneAsync("Scenes/Pause");
         score.paused = false;
-        startTime = midTime;
+        Time.timeScale = 1f;
     }
 }
