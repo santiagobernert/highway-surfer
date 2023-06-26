@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2095359533940726256, guid: 0870512596109e8a09414242077300a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7460151098187737127, guid: 0870512596109e8a09414242077300a8, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -716,8 +720,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 592463982738813218, guid: d730af7cdb61980fa8d46a7ba916c61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d730af7cdb61980fa8d46a7ba916c61d, type: 3}
+--- !u!1 &7545965669655055872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4148609616659447229, guid: d730af7cdb61980fa8d46a7ba916c61d, type: 3}
+  m_PrefabInstance: {fileID: 5848616518754268093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8538938181581087992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545965669655055872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c70e88dfa2067a913b13a2992b4bc17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  coins: 0
 --- !u!4 &7545965669655055902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4148609616659447203, guid: d730af7cdb61980fa8d46a7ba916c61d, type: 3}
