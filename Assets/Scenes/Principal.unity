@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 716539820}
   - component: {fileID: 716539822}
   - component: {fileID: 716539821}
+  - component: {fileID: 716539823}
   m_Layer: 5
   m_Name: CoinsText
   m_TagString: Untagged
@@ -555,6 +556,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716539819}
   m_CullTransparentMesh: 1
+--- !u!114 &716539823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716539819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c70e88dfa2067a913b13a2992b4bc17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 716539821}
+  coins: 0
 --- !u!1 &763413547
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,8 +765,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 0
   paused: 0
-  time: 0
-  startTime: 0
   score: {fileID: 950594103}
   highscoreText: {fileID: 1447594278}
   highscore: 0
@@ -1913,6 +1926,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1448937874170281137, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
     - target: {fileID: 2823796630388330388, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1921,14 +1938,34 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4505703098161219992, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
+    - target: {fileID: 4673605575990082704, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
     - target: {fileID: 4980636389925595960, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5199787075066106211, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
+    - target: {fileID: 6391803023371488903, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
     - target: {fileID: 6524361869454085262, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6717955619184934428, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
     - target: {fileID: 7814360143799156562, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -2005,7 +2042,12 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8538938181581087992, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 716539821}
+    m_RemovedComponents:
+    - {fileID: 8538938181581087992, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f2156ff9db61f203b9f0af09e85d4ac5, type: 3}
 --- !u!1 &2035219653
 GameObject:
@@ -2142,6 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efeb80c36460408a2bcb620b1e23741f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
 --- !u!114 &2116511577
 MonoBehaviour:
   m_ObjectHideFlags: 0
