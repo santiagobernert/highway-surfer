@@ -15,7 +15,7 @@
 
         public void OnCollisionEnter2D(Collision2D colission) {
             crashAudio.Play();
-            if(score.scoreValue > score.highscore){
+            if(score.scoreValue > PlayerPrefs.GetInt("highscore", 0)){
                 score.highscore = (int)score.scoreValue;
                 score.highscoreText.text = ""+score.highscore;
                 PlayerPrefs.SetInt("highscore", score.highscore);
