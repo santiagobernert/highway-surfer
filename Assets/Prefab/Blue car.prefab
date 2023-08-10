@@ -94,7 +94,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2573320676530134077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1553da76f06bbc6fb159e5c7b3c8e59, type: 3}
   m_Name: 
@@ -118,6 +118,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: 0
+  truck: 0
+  sprites:
+  - {fileID: 21300000, guid: 8d40b69157ab27d4983225c259e13f43, type: 3}
+  - {fileID: 21300000, guid: 00e4b04a64978bc1c9d38bd6656849bd, type: 3}
+  - {fileID: 21300000, guid: a68a11527c79cbaf1910446597b9d992, type: 3}
+  - {fileID: 21300000, guid: 8d437618c998b7f9ba95749e92154cc2, type: 3}
 --- !u!61 &2573320676530134074
 BoxCollider2D:
   m_ObjectHideFlags: 0
