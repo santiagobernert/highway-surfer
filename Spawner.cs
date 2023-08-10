@@ -7,6 +7,9 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> prefabs;
 
+      private void Start() {
+         Spawn();
+      }
       private void OnTriggerEnter2D(Collider2D other) {
          Obstacle ob = other.gameObject.GetComponent<Obstacle>();
          if (ob){
