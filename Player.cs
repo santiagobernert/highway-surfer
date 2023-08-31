@@ -8,6 +8,7 @@
     {   
         [SerializeField] AudioSource coinAudio;
         [SerializeField] AudioSource crashAudio;
+        [SerializeField] AudioSource powerupAudio;
         Score score;
         Rigidbody2D rb;
         public Text coinText;
@@ -30,6 +31,10 @@
                 coinAudio.Play();
                 Destroy(colission.gameObject);
                 coinText.text = "" + coins;
+            }
+            if(colission.gameObject.name.Contains("PowerUp")){
+                Destroy(colission.gameObject);
+                powerupAudio.Play();
             }
         }
 
